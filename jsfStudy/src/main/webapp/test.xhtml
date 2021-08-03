@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:b="http://bootsfaces.net/ui">
+<h:head>
+    <title>Hello,BootsFaces</title>
+</h:head>
+<h:body>
+	<div id="photo1" class="tab-pane active">
+	<h:form>
+
+    <p:dataTable value="#{studentUtil.students}" var="student" selection="#{studentUtil.model}" rowKey="#{student.firstName}" selectionMode="single">
+    	<p:column headerText="項目1">
+    		<p:inputText value="#{student.email}"/>
+		</p:column>
+
+	<p:column headerText="項目2">
+    		<p:inputText value="#{student.firstName}"/>
+		</p:column>
+
+	<p:column headerText="項目3">
+    		<p:inputText value="#{student.lastName}"/>
+		</p:column>
+
+    </p:dataTable>
+
+   <p:commandButton action="#{studentUtil.actionButton01}" update="@this" value="追加"/>
+   <p:outputLabel value="#{tagBean.count}"></p:outputLabel>
+</h:form>
+   </div>
+</h:body>
+</html>
